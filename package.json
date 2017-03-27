@@ -1,7 +1,7 @@
 {
   "name": "react-native-store-review",
   "version": "0.1.0",
-  "description": "",
+  "description": "Rate on App Store directly in your React Native app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,9 +18,17 @@
     "rating",
     "rate"
   ],
-  "author": "",
-  "license": "MIT",
-  "peerDependencies": {
-    "react-native": "^0.41.2"
-  }
+  "author": {
+    "name": "Joel Arvidsson",
+    "email": "joel@oblador.se"
+  },
+  "homepage": "https://github.com/oblador/react-native-store-review",
+  "bugs": {
+    "url": "https://github.com/oblador/react-native-store-review/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oblador/react-native-store-review.git"
+  },
+  "license": "MIT"
 }
