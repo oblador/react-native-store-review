@@ -24,7 +24,7 @@ This module exposes the native iOS APIs to ask the user to rate the app in the i
 Add the following to your `Podfile` and run `pod install`:
 
 ```ruby
-pod 'RNStoreReview', :path => 'node_modules/react-native-store-review/ios'
+pod 'RNStoreReview', :path => '../node_modules/react-native-store-review/ios'
 ```
 
 ## Usage
