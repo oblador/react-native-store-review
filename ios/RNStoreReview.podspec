@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author         = { "Joel Arvidsson" => "joel@oblador.se" }
   s.platform       = :ios, "7.0"
   s.source         = { :git => "https://github.com/oblador/react-native-store-review.git", :tag => "v#{s.version}" }
-  s.source_files   = "RNStoreReview/**/*.{h,m}"
+  s.source_files   = "*.{h,m}"
   s.preserve_paths = "**/*.js"
   s.requires_arc = true
 
