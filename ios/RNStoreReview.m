@@ -22,4 +22,9 @@ RCT_EXPORT_METHOD(requestReview)
   [SKStoreReviewController requestReview];
 }
 
++ (BOOL)requiresMainQueueSetup
+{
+  return YES;
+}
+
 @end
