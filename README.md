@@ -36,3 +36,14 @@ if (StoreReview.isAvailable) {
   StoreReview.requestReview();
 }
 ```
+
+## Notes
+
+If you are using this library, you might want to know how the underlying `SKStoreReviewController` is working: first things first, [here is the doc](https://developer.apple.com/documentation/storekit/skstorereviewcontroller).
+
+And having the API Reference might not be enough (the API has some arbitrary limits), that's why we recommend you to read [this guide](https://developer.apple.com/documentation/storekit/skstorereviewcontroller/requesting_app_store_reviews).
+
+The short story behind this `SKStoreReviewController` is that Apple does not want apps to spam users with review requests. Therefore you're able to show this dialog only few times per year. It means that you need to be pretty sure when you want to show it and probably ask the user if he wants to review the app in a first place (before showing this costly dialog).
+
+Another interesting point is that the dialog **is not showing while testing with TestFlight** but will be working normally once in production ([source](https://stackoverflow.com/questions/46770549/skstorereviewcontroller-requestreview-popup-is-not-showing-in-testflight-build/47048474#47048474)).
+
