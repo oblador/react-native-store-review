@@ -39,7 +39,7 @@ if (StoreReview.isAvailable) {
 
 ## Notes
 
-`StoreReview.isAvailable` will not return `false` if Apple's limit for showing the store rating has been reached. It simply returns if the API is available. You will have to keep track of that by yourself.
+`StoreReview.isAvailable` will not be `false` if Apple's limit for showing the store rating has been reached. It simply returns if the API is available. You will have to keep track of that by yourself.
 
 If you are using this library, you might want to know how the underlying `SKStoreReviewController` is working: first things first, [here is the doc](https://developer.apple.com/documentation/storekit/skstorereviewcontroller).
 
