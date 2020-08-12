@@ -24,6 +24,16 @@
     "email": "joel@oblador.se"
   },
   "homepage": "https://github.com/oblador/react-native-store-review",
+  "devDependencies": {
+    "@types/react": "^16.9.19",
+    "@types/react-native": "0.62.13",
+    "react": "16.11.0",
+    "react-native": "0.62.2"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
   "bugs": {
     "url": "https://github.com/oblador/react-native-store-review/issues"
   },

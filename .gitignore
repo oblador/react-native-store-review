@@ -28,3 +28,15 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+bin/
+.project
+.classpath
+.settings
