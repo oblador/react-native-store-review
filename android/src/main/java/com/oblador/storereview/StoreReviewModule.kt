@@ -4,7 +4,6 @@ import android.os.Build.VERSION.SDK_INT
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
-import com.facebook.react.bridge.Promise
 import com.google.android.play.core.review.ReviewManagerFactory
 
 class StoreReviewModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
@@ -18,7 +17,7 @@ class StoreReviewModule(reactContext: ReactApplicationContext) : ReactContextBas
     }
 
     @ReactMethod
-    fun requestReview(promise: Promise) {
+    fun requestReview() {
         val manager = ReviewManagerFactory.create(reactApplicationContext)
 
         val requestReview = manager.requestReviewFlow()
@@ -40,10 +39,6 @@ class StoreReviewModule(reactContext: ReactApplicationContext) : ReactContextBas
                 }
             }
         }
-
-
-        promise.resolve(null)
-    
     }
 
     
