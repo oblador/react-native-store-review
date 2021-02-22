@@ -34,12 +34,8 @@ class StoreReviewModule(reactContext: ReactApplicationContext) : ReactContextBas
                         // reviewed or not, or even whether the review dialog was shown. Thus, no
                         // matter the result, we continue our app flow.
                     }
-
-
                 }
             }
         }
     }
-
-    
 }
