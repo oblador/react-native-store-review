@@ -1,4 +1,4 @@
-// Type definitions for react-native-store-review 0.1
+// Type definitions for react-native-store-review 0.2
 // Project: https://github.com/oblador/react-native-store-review
 // Definitions by: Kyle Roach <https://github.com/iRoachie>
 // TypeScript Version: 2.4
