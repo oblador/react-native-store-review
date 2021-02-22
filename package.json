@@ -2,11 +2,19 @@
   "name": "react-native-store-review",
   "version": "0.1.5",
   "description": "Rate on App Store or Google Play directly in your React Native app",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "src",
+    "ios",
+    "android",
+    "!android/build",
+    "!android/gradlew*",
+    "!android/gradle/wrapper"
+  ],
   "keywords": [
     "react-native",
     "react-component",
@@ -14,6 +22,7 @@
     "react",
     "mobile",
     "ios",
+    "android",
     "app-store",
     "review",
     "rating",
