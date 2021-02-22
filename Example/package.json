@@ -1,23 +1,31 @@
 {
-	"name": "Example",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
-	},
-	"dependencies": {
-		"react": "~15.4.1",
-		"react-native": "0.42.3", 
+  "name": "Example",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "postinstall": "DESTINATION='node_modules/react-native-store-review' LIB_FILE=`cd .. && echo \\`pwd\\`/\\`npm pack\\`` && (rm -rf $DESTINATION || true) && mkdir $DESTINATION && tar -xvzf $LIB_FILE -C $DESTINATION --strip-components 1 && rm $LIB_FILE",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "react": "16.13.1",
+    "react-native": "0.63.4",
     "react-native-store-review": "file:../"
-	},
-	"devDependencies": {
-		"babel-jest": "19.0.0",
-		"babel-preset-react-native": "1.9.1",
-		"jest": "19.0.2",
-		"react-test-renderer": "~15.4.1"
-	},
-	"jest": {
-		"preset": "react-native"
-	}
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.17",
+    "@babel/runtime": "^7.12.18",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.20.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.65.1",
+    "react-test-renderer": "16.13.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
 }
