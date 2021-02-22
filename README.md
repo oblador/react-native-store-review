@@ -6,47 +6,57 @@ This module exposes the native APIs to ask the user to rate the app in the iOS A
 
 ## Installation
 
-`$ yarn add react-native-store-review`
-
-### Mostly automatic installation
-
-`$ react-native link react-native-store-review`
-
-### Manual installation
-
-1. In Xcode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-store-review` and add `RNStoreReview.xcodeproj`
-3. In Xcode, in the project navigator, select your project. Add `libRNStoreReview.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)
-
-### Using [CocoaPods](https://cocoapods.org/)
-
-Add the following to your `Podfile` and run `pod install`:
-
-```ruby
-pod 'RNStoreReview', :path => '../node_modules/react-native-store-review/ios'
+```bash
+# Add dependency
+yarn add react-native-pinchable
+# Link iOS dependency
+pod install --project-directory=ios
+# Compile project
+react-native run-ios # or run-android
 ```
 
 ## Usage
-```javascript
+
+The intention of this API is to ask the user to rate the app as a part of the user journey, typically as the user completes a task. `StoreReview.isAvailable` will not be `false` if the OS limit for showing the store rating has been reached, but rather simply indicate if the API is available. **Since it's not possible to know if a dialog will be shown or not you should not call it as a result of tapping a button**, but rather as a side effect of an event happening in the app. 
+
+```js
 import * as StoreReview from 'react-native-store-review';
 
-// This API is only available on iOS 10.3 or later
+// This API is only available on iOS >= 10.3 or Android API >= 21
 if (StoreReview.isAvailable) {
   StoreReview.requestReview();
 }
 ```
 
-## Notes
+### Button
 
-`StoreReview.isAvailable` will not be `false` if Apple's limit for showing the store rating has been reached. It simply returns if the API is available. You will have to keep track of that by yourself.
+If you want to show a button or provide a fallback for OS versions not supporting these APIs, you can redirect the user to the respective stores to review the app there instead. 
 
-If you are using this library, you might want to know how the underlying `SKStoreReviewController` is working: first things first, [here is the doc](https://developer.apple.com/documentation/storekit/skstorereviewcontroller).
+```js
+import { Linking, Platform } from 'react-native';
 
-And having the API Reference might not be enough (the API has some arbitrary limits), that's why we recommend you to read [this guide](https://developer.apple.com/documentation/storekit/skstorereviewcontroller/requesting_app_store_reviews).
+const APP_STORE_LINK = `itms-apps://apps.apple.com/app/id${IOS_APP_ID}?action=write-review`;
+const PLAY_STORE_LINK = `market://details?id=${ANDROID_APP_ID}`;
 
-The short story behind this `SKStoreReviewController` is that Apple does not want apps to spam users with review requests. Therefore you're able to show this dialog only few times per year. It means that you need to be pretty sure when you want to show it and probably ask the user if he wants to review the app in a first place (before showing this costly dialog).
+const STORE_LINK = Platform.select({
+  ios: APP_STORE_LINK,
+  android: PLAY_STORE_LINK,
+});
 
-Another interesting point is that the dialog **is not showing while testing with TestFlight** but will be working normally once in production ([source](https://stackoverflow.com/questions/46770549/skstorereviewcontroller-requestreview-popup-is-not-showing-in-testflight-build/47048474#47048474)).
+export const openReviewInStore = () => Linking.openURL(STORE_LINK)
+```
 
-Read more about Google Play Store in-app-review [in the docs](https://developer.android.com/guide/playcore/in-app-review)
+## References
+
+* [`SKStoreReviewController` for App Store](https://developer.apple.com/documentation/storekit/skstorereviewcontroller/requesting_app_store_reviews) 
+* [`In-App Review API` for Google Play Store](https://developer.android.com/guide/playcore/in-app-review).
+
+## Troubleshooting
+
+### The dialog is not showing in the correct language on iOS
+
+The strings in the dialog comes from the OS, if your translations are purely in JavaScript land you need to add meta data so iOS understand which languages you support, [see the official documentation](https://developer.apple.com/documentation/xcode/localization/adding_support_for_languages_and_regions).
+
+### The dialog is not showing when I call `requestReview()`
+
+The dialog **is not showing while testing with TestFlight** but will be working normally once in production ([source](https://stackoverflow.com/questions/46770549/skstorereviewcontroller-requestreview-popup-is-not-showing-in-testflight-build/47048474#47048474)). Furthermore it will not work for enterprise apps as they are not available on the App Store, and Apple/Google will restrict the amount of times the API can be called to a few times per year in order prevent misuse. 
