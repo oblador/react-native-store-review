@@ -8,8 +8,8 @@ const { RNStoreReview } = NativeModules;
 export const isAvailable = !!RNStoreReview && RNStoreReview.isAvailable;
 
 /**
- * Asks the user to rate the app in the iOS App Store.
- * @throws Will throw an Error if native module is not present or not supported by the iOS version.
+ * Asks the user to rate the app in the App/Play Store.
+ * @throws Will throw an Error if native module is not present or not supported by the OS version.
  */
 export function requestReview() {
   if (!RNStoreReview) {
