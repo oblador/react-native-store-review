@@ -1,6 +1,6 @@
 # react-native-store-review
 
-This module exposes the native iOS APIs to ask the user to rate the app in the iOS App Store directly from within the app (requires iOS >= 10.3). 
+This module exposes the native APIs to ask the user to rate the app in the iOS App Store or Google Play store directly from within the app (requires iOS >= 10.3 or Android 5.0 with Google Play store installed). 
 
 <img width="274" alt="Rating Dialog" src="https://cloud.githubusercontent.com/assets/378279/24377493/d22eb0b8-133f-11e7-9968-44d186a3801f.png">
 
@@ -49,3 +49,4 @@ The short story behind this `SKStoreReviewController` is that Apple does not wan
 
 Another interesting point is that the dialog **is not showing while testing with TestFlight** but will be working normally once in production ([source](https://stackoverflow.com/questions/46770549/skstorereviewcontroller-requestreview-popup-is-not-showing-in-testflight-build/47048474#47048474)).
 
+Read more about Google Play Store in-app-review [in the docs](https://developer.android.com/guide/playcore/in-app-review)
