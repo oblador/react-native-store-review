@@ -8,7 +8,7 @@ This module exposes the native APIs to ask the user to rate the app in the iOS A
 
 ```bash
 # Add dependency
-yarn add react-native-pinchable
+yarn add react-native-store-review
 # Link iOS dependency
 pod install --project-directory=ios
 # Compile project
