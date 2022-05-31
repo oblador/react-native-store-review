@@ -1,6 +1,6 @@
 {
   "name": "react-native-store-review",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Rate on App Store or Google Play directly in your React Native app",
   "main": "src/index.js",
   "types": "src/index.d.ts",
