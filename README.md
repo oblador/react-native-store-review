@@ -59,4 +59,16 @@ The strings in the dialog comes from the OS, if your translations are purely in 
 
 ### The dialog is not showing when I call `requestReview()`
 
+#####(1)
+For iOS you have to add LSApplicationQueriesSchemes as Array param to Info.plist and add itms-apps as one of params in this array to link appstore.
+
+For example:
+```js
+<key>LSApplicationQueriesSchemes</key>
+<array>
+  <string>itms-apps</string>
+</array>
+```
+
+##### or (2)
 The dialog **is not showing while testing with TestFlight** but will be working normally once in production ([source](https://stackoverflow.com/questions/46770549/skstorereviewcontroller-requestreview-popup-is-not-showing-in-testflight-build/47048474#47048474)). Furthermore it will not work for enterprise apps as they are not available on the App Store, and Apple/Google will restrict the amount of times the API can be called to a few times per year in order prevent misuse. 
