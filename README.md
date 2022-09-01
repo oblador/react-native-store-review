@@ -17,15 +17,12 @@ react-native run-ios # or run-android
 
 ## Usage
 
-The intention of this API is to ask the user to rate the app as a part of the user journey, typically as the user completes a task. `StoreReview.isAvailable` will not be `false` if the OS limit for showing the store rating has been reached, but rather simply indicate if the API is available. **Since it's not possible to know if a dialog will be shown or not you should not call it as a result of tapping a button**, but rather as a side effect of an event happening in the app. 
+The intention of this API is to ask the user to rate the app as a part of the user journey, typically as the user completes a task. **Since it's not possible to know if a dialog will be shown or not you should not call it as a result of tapping a button**, but rather as a side effect of an event happening in the app. 
 
 ```js
 import * as StoreReview from 'react-native-store-review';
 
-// This API is only available on iOS >= 10.3 or Android API >= 21
-if (StoreReview.isAvailable) {
-  StoreReview.requestReview();
-}
+StoreReview.requestReview();
 ```
 
 ### Button
