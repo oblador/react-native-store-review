@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { AppRegistry, Button, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import * as StoreReview from 'react-native-store-review';
 
 const styles = StyleSheet.create({
@@ -16,15 +16,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class Example extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Button onPress={StoreReview.requestReview} title="Request Review" />
-      </View>
-    );
-  }
-}
+const App = () => (
+  <View style={styles.container}>
+    <Text style={styles.welcome}>Welcome to React Native!</Text>
+    <Button onPress={StoreReview.requestReview} title="Request Review" />
+  </View>
+);
 
-AppRegistry.registerComponent('Example', () => Example);
+export default App;
