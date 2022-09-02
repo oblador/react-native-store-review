@@ -1,0 +1,26 @@
+package com.oblador.storereview;
+
+import com.facebook.react.bridge.NativeModule;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import java.util.Map;
+import java.util.HashMap;
+
+public class StoreReviewModule extends ReactContextBaseJavaModule {
+
+    StoreReviewModule(ReactApplicationContext context) {
+        super(context);
+    }
+
+    @Override
+    public String getName() {
+        return StoreReviewModuleImpl.NAME;
+    }
+
+    @ReactMethod
+    public void requestReview() {
+        StoreReviewModuleImpl.requestReview(getReactApplicationContext());
+    }
+}
