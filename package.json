@@ -1,6 +1,6 @@
 {
   "name": "react-native-store-review",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Rate on App Store or Google Play directly in your React Native app",
   "main": "src",
   "scripts": {
@@ -14,7 +14,8 @@
     "android",
     "!android/build",
     "!android/gradlew*",
-    "!android/gradle/wrapper"
+    "!android/gradle/wrapper",
+    "!.DS_Store"
   ],
   "keywords": [
     "react-native",
