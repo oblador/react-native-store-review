@@ -57,5 +57,5 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-  implementation("com.google.android.play:review:${safeExtGet('playCoreReviewVersion', DEFAULT_CORE_APP_REVIEW_VERSION)}")
+    implementation("com.google.android.play:review:${safeExtGet('playCoreReviewVersion', DEFAULT_CORE_APP_REVIEW_VERSION)}")
 }

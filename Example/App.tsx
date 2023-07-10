@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import * as StoreReview from 'react-native-store-review';
+import { requestReview } from 'react-native-store-review';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 const App = () => (
   <View style={styles.container}>
     <Text style={styles.welcome}>Welcome to React Native!</Text>
-    <Button onPress={StoreReview.requestReview} title="Request Review" />
+    <Button onPress={() => requestReview()} title="Request Review" />
   </View>
 );
 
