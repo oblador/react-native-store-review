@@ -16,6 +16,13 @@ def isNewArchitectureEnabled() {
 }
 
 apply plugin: 'com.android.library'
+
+def DEFAULT_CORE_APP_REVIEW_VERSION = "2.0.1"
+
+def safeExtGet(prop, fallback) {
+  rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
 if (isNewArchitectureEnabled()) {
     apply plugin: 'com.facebook.react'
 }
@@ -50,5 +57,5 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation 'com.google.android.play:core:1.10.3'
+  implementation("com.google.android.play:review:${safeExtGet('playCoreReviewVersion', DEFAULT_CORE_APP_REVIEW_VERSION)}")
 }
