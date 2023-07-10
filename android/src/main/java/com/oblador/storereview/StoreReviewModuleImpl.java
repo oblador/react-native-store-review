@@ -18,7 +18,10 @@ public class StoreReviewModuleImpl {
         ReviewManager manager = ReviewManagerFactory.create(context);
         Task<ReviewInfo> request = manager.requestReviewFlow();
         request.addOnCompleteListener(task -> {
-            if (!task.isSuccessful()) {
+            if (task.isSuccessful()) {
+                ReviewInfo reviewInfo = task.getResult();
+                manager.launchReviewFlow(context.getCurrentActivity(), reviewInfo);
+            } else {
                 Log.w(NAME, "Requesting review failed");
             }
         });
