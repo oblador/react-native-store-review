@@ -22,7 +22,7 @@ public class StoreReviewModuleImpl {
                 ReviewInfo reviewInfo = task.getResult();
                 manager.launchReviewFlow(context.getCurrentActivity(), reviewInfo);
             } else {
-                Log.w(NAME, "Requesting review failed");
+                Log.w(NAME, "Requesting review failed", task.getException());
             }
         });
     }
