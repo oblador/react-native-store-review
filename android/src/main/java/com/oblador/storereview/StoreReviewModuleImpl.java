@@ -28,7 +28,7 @@ public class StoreReviewModuleImpl {
                   Log.w(NAME, "Current activity is null. Unable to launch review flow.");
                 }
             } else {
-                Log.w(NAME, "Requesting review failed");
+                Log.w(NAME, "Requesting review failed", task.getException());
             }
         });
     }
