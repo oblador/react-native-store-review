@@ -28,6 +28,7 @@ if (isNewArchitectureEnabled()) {
 }
 
 android {
+    namespace = "com.oblador.storereview"
     compileSdkVersion safeExtGet('compileSdkVersion', 31)
 
     defaultConfig {
