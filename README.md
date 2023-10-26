@@ -56,7 +56,7 @@ The strings in the dialog comes from the OS, if your translations are purely in 
 
 ### The dialog is not showing when I call `requestReview()`
 
-#####(1)
+##### (1)
 For iOS you have to add LSApplicationQueriesSchemes as Array param to Info.plist and add itms-apps as one of params in this array to link appstore.
 
 For example:
