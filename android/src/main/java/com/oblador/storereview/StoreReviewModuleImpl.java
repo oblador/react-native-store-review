@@ -1,5 +1,6 @@
 package com.oblador.storereview;
 
+import android.app.Activity;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import java.util.Map;
@@ -20,7 +21,12 @@ public class StoreReviewModuleImpl {
         request.addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 ReviewInfo reviewInfo = task.getResult();
-                manager.launchReviewFlow(context.getCurrentActivity(), reviewInfo);
+                Activity currentActivity = context.getCurrentActivity();
+                if (currentActivity != null) {
+                  manager.launchReviewFlow(currentActivity, reviewInfo);
+                } else {
+                  Log.w(NAME, "Current activity is null. Unable to launch review flow.");
+                }
             } else {
                 Log.w(NAME, "Requesting review failed");
             }
