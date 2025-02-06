@@ -1,6 +1,6 @@
 # react-native-store-review
 
-This module exposes the native APIs to ask the user to rate the app in the iOS App Store or Google Play store directly from within the app (requires iOS >= 12.4 or Android 5.0 with Google Play store installed). 
+This module exposes the native APIs to ask the user to rate the app in the iOS App Store or Google Play store directly from within the app (requires iOS >= 14.0 or Android 5.0 with Google Play store installed). 
 
 <img width="274" alt="Rating Dialog" src="https://cloud.githubusercontent.com/assets/378279/24377493/d22eb0b8-133f-11e7-9968-44d186a3801f.png">
 
