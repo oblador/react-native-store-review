@@ -1,9 +1,6 @@
 #import "RNStoreReview.h"
-#import <StoreKit/SKStoreReviewController.h>
 
-#ifdef RCT_NEW_ARCH_ENABLED
-#import <RNStoreReviewSpec/RNStoreReviewSpec.h>
-#endif
+#import "RNStoreReview-Swift.h"
 
 @implementation RNStoreReview
 
@@ -16,21 +13,7 @@ RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(requestReview)
 {
-  if (@available(iOS 14.0, *)) {
-    UIWindowScene *activeScene;
-    NSSet *scenes = [[UIApplication sharedApplication] connectedScenes];
-    for (UIScene *scene in scenes) {
-      if ([scene activationState] == UISceneActivationStateForegroundActive) {
-        activeScene = scene;
-        break;
-      }
-    }
-    if (activeScene != nil) {
-      [SKStoreReviewController requestReviewInScene:activeScene];
-    }
-  } else {
-    [SKStoreReviewController requestReview];
-  }
+  [StoreReview requestReview];
 }
 
 #ifdef RCT_NEW_ARCH_ENABLED
