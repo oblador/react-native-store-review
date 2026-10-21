@@ -1,6 +1,10 @@
 #import "RNStoreReview.h"
 
+#if __has_include(<RNStoreReview/RNStoreReview-Swift.h>)
+#import <RNStoreReview/RNStoreReview-Swift.h>
+#else
 #import "RNStoreReview-Swift.h"
+#endif
 
 @implementation RNStoreReview
 
